@@ -73,7 +73,7 @@ def main():
                     time.sleep(5)
 
                 #for row in cursor:
-                #    print(row)
+                #print(row)
         else:
             print("Error: Empty work order placed!")
             time.sleep(5)
