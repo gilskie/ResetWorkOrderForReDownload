@@ -33,7 +33,7 @@ def main():
             else:
                 sql_statement = "SELECT FileName, DateDetected, DownloadStatus, RetryCounter " \
                                 "FROM [CHVDP_FTP_Files] " \
-                                "where replace(FileName,'.pdf','') " \
+                                "where replace(replace(FileName,'.xml',''),'.pdf','') " \
                                 "in('" + input_work_order_id.replace(",","','") + "') " \
                                 "order by DateDetected desc"
                 #breakpoint()
@@ -62,7 +62,7 @@ def main():
                                     ",[DownloaderId] = NULL " \
                                     ",[DateAllocated] = NULL " \
                                     ",[RetryCounter] = NULL " \
-                                    "where replace(FileName,'.pdf','') in('" + input_work_order_id.replace(",","','") + "')"
+                                    "where replace(replace(FileName,'.xml',''),'.pdf','') in('" + input_work_order_id.replace(",","','") + "')"
                     #breakpoint()
                     cursor.execute(sql_statement)
                     cursor.commit()
